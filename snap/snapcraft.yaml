@@ -1,0 +1,27 @@
+name: sclack
+base: core18
+version: git
+summary: The best CLI client for Slack, because everything is terrible
+description: |
+  The best CLI client for Slack, because everything is terrible
+
+  The project is still under alpha, there are lots of things already done,
+  but there is also a lot of work to do! If you want to help, please contact
+  me under marcelocamargo@linuxmail.org or create an issue! Working in
+  community, we can soon have a CLI client as complete as the web one!
+
+grade: stable
+confinement: strict
+
+parts:
+  sclack:
+    plugin: python
+    python-version: python3
+    source: .
+    requirements:
+      - requirements.txt
+
+apps:
+  sclack:
+    command: app.py
+    plugs: [network, home]
